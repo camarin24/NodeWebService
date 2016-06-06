@@ -1,0 +1,17 @@
+{
+  "name": "webservice",
+  "version": "1.0.0",
+  "description": "web service de node con conexion a mongo db",
+  "main": "app.js",
+  "scripts": {
+    "start":"node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cristian Marin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.20"
+  }
+}
