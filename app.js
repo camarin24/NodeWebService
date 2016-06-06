@@ -6,6 +6,9 @@ var express = require("express"),
     router,
     server;
 
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+
 app = express();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
@@ -22,4 +25,4 @@ router.get("/user/:email",function(req,res){
 
 app.use("/service",router);
 server = http.createServer(app);
-server.listen(8080);
+server.listen(port,ip_address);
