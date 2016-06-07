@@ -16,9 +16,6 @@ app.use(bodyparser.urlencoded({extended:true}));
 router = express.Router();
 
 router.get("/user/:email",function(req,res){
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
   console.log(req);
   User.find({email:req.params.email},function(err,docs){
     if(err)console.log(err);
@@ -26,6 +23,11 @@ router.get("/user/:email",function(req,res){
   })
 })
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use("/service",router);
 server = http.createServer(app);
 server.listen(port,ip_address);
