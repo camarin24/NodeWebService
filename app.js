@@ -1,10 +1,7 @@
 var express = require("express"),
     bodyparser = require("body-parser"),
-    http = require("http"),
     User = require("./models/user").User,
-    app,
-    router,
-    server;
+    app;
 
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 var ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
@@ -12,22 +9,19 @@ var ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 app = express();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.header('Access-Control-Allow-Credentials', true);
+    next();
+});
 
-router = express.Router();
-
-router.get("/user/:email",function(req,res){
-  console.log(req);
-  User.find({email:req.params.email},function(err,docs){
+app.get("/user",function(req,res){
+  User.find(function(err,docs){
     if(err)console.log(err);
     res.json(docs)
   })
-})
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
 });
-app.use("/service",router);
-server = http.createServer(app);
-server.listen(port,ip_address);
+
+app.listen(port,ip_address);
