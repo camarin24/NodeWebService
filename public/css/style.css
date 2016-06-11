@@ -1,0 +1,23 @@
+body{
+
+}
+/*Helpers*/
+.white-background{
+  background-color: #fefefe;
+}
+/*Helpers*/
+/*Login*/
+
+.login{
+  margin-top: 20%;
+}
+
+.login-background{
+  background-color: #000000;
+}
+canvas{
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+}
+/*Login*/

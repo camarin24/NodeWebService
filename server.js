@@ -11,6 +11,7 @@ var ip_address = process.env.IP || '127.0.0.1';
 app = express();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
+app.set("view engine","jade");
 app.use(session({
   secret:"tupapitomk24",
   resave:false,
@@ -25,7 +26,7 @@ app.use(function (req, res, next) {
 });
 
 app.get("/",function(req,res){
-  res.render("./views/login.html");
+  res.render("login");
 })
 
 app.get("/user",function(req,res){
