@@ -12,6 +12,7 @@ app = express();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 app.set("view engine","jade");
+app.use(express.static(__dirname + '/public'));
 app.use(session({
   secret:"tupapitomk24",
   resave:false,
@@ -29,6 +30,9 @@ app.get("/",function(req,res){
   res.render("login");
 })
 
+app.post("/login",function(req,res){
+  console.log(req.body);
+})
 app.get("/user",function(req,res){
   User.find(function(err,docs){
     if(err)console.log(err);

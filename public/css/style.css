@@ -9,7 +9,7 @@ body{
 /*Login*/
 
 .login{
-  margin-top: 20%;
+  margin-top: 15%;
 }
 
 .login-background{
@@ -19,5 +19,9 @@ canvas{
   position: absolute;
   top: 0px;
   z-index: -1;
+}
+.card-action{
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
 }
 /*Login*/
