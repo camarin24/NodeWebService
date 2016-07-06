@@ -2,6 +2,7 @@ var express = require("express"),
     bodyparser = require("body-parser"),
     User = require("./models/user").User,
     session = require("express-session"),
+    router_app = require("./router"),
     session_middleware = require("./middlewares/session"),
     app;
 
@@ -31,8 +32,13 @@ app.get("/",function(req,res){
 })
 
 app.post("/login",function(req,res){
-  console.log(req.body);
+    User.findOne({email:req.body.email,password:req.body.password},
+    function(err,docs){
+      req.session.user = docs._id;
+      res.redirect("/app");
+  });
 })
+
 app.get("/user",function(req,res){
   User.find(function(err,docs){
     if(err)console.log(err);
@@ -41,9 +47,6 @@ app.get("/user",function(req,res){
 });
 
 
-app.get('*', function(req, res){
-  res.send('Error 404, que lastima.', 404);
-});
-
 app.use("/app",session_middleware);
+app.use("/app",router_app);
 app.listen(port,ip_address);

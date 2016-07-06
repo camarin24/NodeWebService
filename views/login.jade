@@ -2,18 +2,17 @@ extends ./layout.jade
 block contenido
   div.row
     div(class="col l4 m4 s12 offset-l4 offset-s4")
-      div(class=["card","login"])
+      form(action="/login",method="POST",class="card login")
         div(class=["card-content","darken-text"])
           span.card-title Iniciar Sessión
-          form(action="/login",method="POST")
-            div.row
-              div(class=["input-field col s12 m12 l12"])
-                input(id="email",type="email",class="validate")
-                label(for="email") Correo Electrónico
-            div.row
-              div(class="input-field col s12 m12 l12")
-                input(id="password" type="password",class="validate")
-                label(for="password") Contraseña
+          div.row
+            div(class=["input-field col s12 m12 l12"])
+              input(id="email",type="email",class="validate",name="email")
+              label(for="email") Correo Electrónico
+          div.row
+            div(class="input-field col s12 m12 l12")
+              input(id="password" type="password",class="validate",name="password")
+              label(for="password") Contraseña
         div.card-action
           div.row
             div(class="input-field col s12 m10 l10 offset-l1 offset-m1")
