@@ -18,6 +18,9 @@ body{
 .alert{
   margin-bottom: 5px;
 }
+.img-brand{
+  width: 35px;
+}
 /*Helpers*/
 /*Login*/
 

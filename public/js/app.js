@@ -1,11 +1,12 @@
 (function(){
   $.material.init();
   var app = angular.module('warframe',[]);
-  app.controller("mainController",function($scope){
-    $scope.message = "hello";
-    $scope.backgroundClass = "login-background";
-  })
-  app.controller("registroController",function($scope){
-    $scope.message = "hello registro";
+  app.controller("eventosController",function($scope,$http){
+    $http.get('/app/getEvents/123', {id : "123"}).then(function(res){
+      $scope.eventos = JSON.stringify(res);
+      console.log($scope.eventos);
+    }, function(res){
+
+    });
   })
 })()

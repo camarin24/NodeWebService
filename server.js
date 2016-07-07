@@ -41,6 +41,7 @@ app.post("/login", function (req, res) {
     } else {
       if (rows.length > 0) {
         req.session.login = rows[0]._id;
+
         res.redirect("/app");
       } else {
         res.render("login", { errors: "El usuario o contraseña son incorrectos." });

@@ -1,0 +1,22 @@
+extends ../layout-app.jade
+block contenidoApp
+  div.container(ng-controller="eventosController")
+    div.row
+      div(class="col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2")
+        div(class="panel panel-primary")
+          div.panel-heading Crea un evento
+          div.panel-body
+            form(action="/login",method="POST")
+              div.row
+                div(class="col-lg-3 col-md-3 col-sm-3 col-xs-12")
+                  img.img-responsive(src="https://www.benulekaren.sk/images/default/img/noimage.png")
+                div(class="col-lg-9 col-md-9 col-sm-9 col-xs-12")
+                  div(class="form-group label-floating")
+                    label.control-label(for="nombre") Nombre del evento
+                    input#nombre.form-control(type="text",name="nombre",required)
+              div.row
+                div(class="col-lg-12")
+                  div(class="form-group label-floating")
+                    label.control-label(for="descripcion") Descripción
+                    input#descripcion.form-control(type="text",name="descripcion",required)
+              button(type="submit",class="btn btn-primary btn-raised pull-right") Crear
