@@ -1,4 +1,5 @@
 (function(){
+  $.material.init();
   var app = angular.module('warframe',[]);
   app.controller("mainController",function($scope){
     $scope.message = "hello";

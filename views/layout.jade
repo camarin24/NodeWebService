@@ -4,8 +4,13 @@ html(lang="es",ng-app="warframe")
     title WarframeProyect
     meta(charset="utf-8")
     link(href="http://fonts.googleapis.com/icon?family=Material+Icons",rel="stylesheet",crossorigin="anonymous")
-    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7",crossorigin="anonymous")
-    link(rel="stylesheet", href="css/style.css")
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
+    link(href="https://fonts.googleapis.com/css?family=Roboto",rel="stylesheet")
+    link(href="css/bootstrap-material-design.css", rel="stylesheet")
+    link(href="css/ripples.css", rel="stylesheet")
+    link(href="css/alertify.css", rel="stylesheet")
+    link(href="css/default.css", rel="stylesheet")
+    link(href="css/style.css", rel="stylesheet")
     
   body
     block contenido
@@ -13,8 +18,17 @@ html(lang="es",ng-app="warframe")
     
     
     script(src="js/angular.min.js")
-    script(src="js/app.js")
     script(src="js/jquery.js")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS",crossorigin="anonymou")
-    script(src="js/trianglify.min.js")
-    script(src="js/trianglify.js")
+    script(src="js/bootstrap.min.js")
+    script(src="js/material.js")
+    script(src="js/ripples.js")
+    script(src="js/alertify.js")
+    script(src="js/app.js")
+    if noRegistro
+      script(type='text/javascript').
+          alertify.set('notifier','position', 'top-right');
+          alertify.notify('#{noRegistro}','success',30)
+    if errors
+      script(type='text/javascript').
+          alertify.set('notifier','position', 'top-right');
+          alertify.notify('#{errors}','success',30)

@@ -1,27 +1,25 @@
 body{
-
+  font-family: 'Roboto', sans-serif;
+  background-color: #ECEFF1;
 }
 /*Helpers*/
 .white-background{
   background-color: #fefefe;
 }
+.margin-top-45{
+  margin-top: 45%;
+}
+.margin-top-5{
+  margin-top: 5%;
+}
+.panel-heading{
+  font-size: 15px;
+}
+.alert{
+  margin-bottom: 5px;
+}
 /*Helpers*/
 /*Login*/
 
-.login{
-  margin-top: 15%;
-}
 
-.login-background{
-  background-color: #000000;
-}
-canvas{
-  position: absolute;
-  top: 0px;
-  z-index: -1;
-}
-.card-action{
-  padding-top: 1px !important;
-  padding-bottom: 1px !important;
-}
 /*Login*/

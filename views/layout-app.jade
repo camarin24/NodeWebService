@@ -5,23 +5,40 @@ html(lang="es",ng-app="warframe")
     meta(charset="utf-8")
     link(href="http://fonts.googleapis.com/icon?family=Material+Icons",rel="stylesheet")
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7",crossorigin="anonymous")
+    link(href="https://fonts.googleapis.com/css?family=Roboto",rel="stylesheet")
+    link(rel="stylesheet", href="css/bootstrap-material-design.css")
+    link(rel="stylesheet", href="css/ripples.css")
+    link(href="css/alertify.css", rel="stylesheet")
+    link(href="css/default.css", rel="stylesheet")
     link(rel="stylesheet", href="css/style.css")
   body
-    nav
-      div.nav-wrapper
-        a(href="#!",class="brand-logo") Logo
-        a(href="#", data-activates="mobile-demo",class="button-collapse")
-          i(class="material-icons") menu
-        ul(class="right hide-on-med-and-down")
-          li: a(href="sass.html") Sass
-          li: a(href="badges.html") Components
-          li: a(href="collapsible.html") Javascript
-          li: a(href="mobile.html") Mobile
-        ul(class="side-nav",id="mobile-demo")
-          li: a(href="sass.html") Sass
-          li: a(href="badges.html") Components
-          li: a(href="collapsible.html") Javascript
-          li: a(href="mobile.html") Mobile
+    nav(class="navbar navbar-default")
+      div.container-fluid
+        div.navbar-header
+          button(type="button",class="navbar-toggle collapsed",data-toggle="collapse",data-target="#bs-example-navbar-collapse-1",aria-expanded="false")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="#") Brand
+        div(class="collapse navbar-collapse",id="bs-example-navbar-collapse-1")
+          ul(class="nav navbar-nav")
+            li.active
+              a(href="#") Link 
+                span.sr-only (current)
+            li
+              a(href="#") Link
+          ul(class="nav navbar-nav navbar-right")
+            li: a(href="#") Link
+            li.dropdown
+              a(href="#",class="dropdown-toggle",data-toggle="dropdown",role="button",aria-haspopup="true",aria-expanded="false") Dropdown 
+                span.caret
+              ul.dropdown-menu
+                li: a(href="#") Action
+                li: a(href="#") Another action
+                li: a(href="#") Something else here
+                li(role="separator",class="divider")
+                li: a(href="#") Separated link
     block contenidoApp
     
     
@@ -29,5 +46,8 @@ html(lang="es",ng-app="warframe")
     script(src="js/angular.min.js")
     script(src="js/jquery.js")
     script(src="js/mixes.js")
+    script(src="js/bootstrap.min.js")
+    script(src="js/material.js")
+    script(src="js/ripples.js")
+    script(src="js/alertify.js")
     script(src="js/app.js")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS",crossorigin="anonymou")
