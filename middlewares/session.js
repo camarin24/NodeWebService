@@ -10,7 +10,6 @@ module.exports = function (req, res, next) {
         next();
       } else {
         res.locals.userName = rows[0].nombre + " " + rows[0].apellido;
-        console.log(rows[0].nombre);
         next();
       }
     })

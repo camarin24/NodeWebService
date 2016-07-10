@@ -49,7 +49,6 @@
   background: rgba(255, 255, 255, 0.95);
   color: #000;
   text-align: center;
-  border: solid 1px #ddd;
   border-radius: 2px;
 }
 .alertify-notifier .ajs-message.ajs-success {
@@ -59,8 +58,7 @@
 }
 .alertify-notifier .ajs-message.ajs-error {
   color: #fff;
-  background: rgba(217, 92, 92, 0.95);
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
+  background: rgba(244, 67, 54, 0.95);
 }
 .alertify-notifier .ajs-message.ajs-warning {
   background: rgba(252, 248, 215, 0.95);

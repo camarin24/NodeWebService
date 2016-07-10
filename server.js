@@ -57,11 +57,11 @@ app.post("/registro", function (req, res) {
     correo_electronico: req.body.email,
     contrasenia: req.body.password
   };
-  db.query("SELECT * FROM personas WHERE correo_electronico = ?",[req.body.email],function(err,user){
-    if(err) throw err;
-    if(user.length > 0){
-      res.render("registro",{noRegistro: "Ya existe una persona con el mismo correo electónico"});
-    }else{
+  db.query("SELECT * FROM personas WHERE correo_electronico = ?", [req.body.email], function (err, user) {
+    if (err) throw err;
+    if (user.length > 0) {
+      res.render("registro", { noRegistro: "Ya existe una persona con el mismo correo electónico" });
+    } else {
       db.query('INSERT INTO personas SET ?', datos, function (err, rows) {
         if (err) throw err;
         res.redirect("/login");

@@ -1,22 +1,36 @@
 extends ../layout-app.jade
-block contenidoApp
+block contenidoApp        
   div.container(ng-controller="eventosController")
+    a(href="",class="btn btn-primary btn-fab floating-btn",ng-click="openModal()")
+      i(class="material-icons") add
+    div#mdl_evento(class="modal fade")
+      div.modal-dialog
+        div.modal-content
+          div.modal-header
+            button(type="button",class="close",data-dismiss="modal",aria-label="Close")
+              span(aria-hidden="true") &times;
+            h4.modal-title Crea un evento
+          div.modal-body
+            form#formEvento(action="/app/crearEvento",method="POST",enctype="multipart/form-data")
+              div(class="form-group label-floating")
+                label.control-label(for="nombre") Nombre del evento
+                input#nombre.form-control(type="text",name="nombre",required,ng-model="mdlEvento.nombre")
+              div(class="form-group label-floating")
+                label.control-label(for="descripcion") Descripción
+                textarea#descripcion.form-control(name="descripcion",required,ng-model="mdlEvento.descripcion")
+              div(class="form-group label-floating")
+                label(class="control-label",for="imagen") Imagen
+                input(type="file",id="imagen",multiple="",name="imagen")
+                input(type="text",readonly="",class="form-control",placeholder="")
+          div.modal-footer
+            button(type="button",class="btn btn-default",data-dismiss="modal",ng-click="formReset()") Cancelar
+            button(type="button",class="btn btn-primary btn-raised",ng-click="enviarForm()") Crear
     div.row
       div(class="col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2")
-        div(class="panel panel-primary")
-          div.panel-heading Crea un evento
-          div.panel-body
-            form(action="/login",method="POST")
-              div.row
-                div(class="col-lg-3 col-md-3 col-sm-3 col-xs-12")
-                  img.img-responsive(src="https://www.benulekaren.sk/images/default/img/noimage.png")
-                div(class="col-lg-9 col-md-9 col-sm-9 col-xs-12")
-                  div(class="form-group label-floating")
-                    label.control-label(for="nombre") Nombre del evento
-                    input#nombre.form-control(type="text",name="nombre",required)
-              div.row
-                div(class="col-lg-12")
-                  div(class="form-group label-floating")
-                    label.control-label(for="descripcion") Descripción
-                    input#descripcion.form-control(type="text",name="descripcion",required)
-              button(type="submit",class="btn btn-primary btn-raised pull-right") Crear
+        div(class="panel panel-primary",ng-repeat="evento in eventos[0]" )
+          div(class="panel-heading header-eventos")
+            div(style="background-image:url(uploads/{{evento.img}})")
+            h5 {{evento.nombre_persona +" "+ evento.apellido_persona}} > {{evento.nombre}}
+          div(class="panel-body")
+            p {{evento.descripcion}}
+            
